@@ -20,7 +20,22 @@ projectspath="/home/chris/projects"
 
 
 help() {
-    echo "  Help here:"
+cat <<"USAGE"
+
+Usage: ./vhost.sh [OPTIONS] <name>
+    -h|--help   this screen
+    -add        creates a new vhost
+    -rm         deletes an existing vhost
+    -l          to list the current virtual hosts
+    -a          currently available virtual hosts
+
+Examples:
+    vhost.sh -add newproj    	Create a new apache2 vhost named mysite in ~/projects/newproj
+                                A 'soft' link is created in /var/www that points to the above project.
+                                Reachable at http://newproj.local
+                                (Do not forget to update the Windows hosts file!)
+
+USAGE
 	exit 0
 }
 list() {
